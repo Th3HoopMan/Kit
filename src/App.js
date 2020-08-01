@@ -2,24 +2,23 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import KitForm from './KitForm'
+import KitList from './KitList';
+import { KitProvider } from './KitContext';
+import Kit from './Kit';
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <KitProvider>
+      <div className="App">
+
+        {/* If no kits have been create show empty message */}
+
+        {/* Else Default State */}
+        <KitForm/>
+        <KitList/>
+      </div>
+    </KitProvider>
   );
 }
 
