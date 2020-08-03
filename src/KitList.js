@@ -10,6 +10,7 @@ const KitList = () => {
                 kits.map((kit) => {
                     return(
                      <div>
+                         <h1>{kit.name}</h1>
                          <ul>
                             <li>{kit.links}</li>
                          </ul>

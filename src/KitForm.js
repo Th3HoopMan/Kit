@@ -18,9 +18,13 @@ class Kit {
 
 const KitForm = () => {
     const [items, setItems] = useState([]);
+    const [name, setName]= useState('');
     const [item, setItem] = useState('');
     const [kits, setKits] = useContext(KitContext);
 
+    const updateName = e => {
+        setName(e.target.value);
+    }
 
     const updateItem = e => {
         setItem(e.target.value);
@@ -38,6 +42,7 @@ const KitForm = () => {
 
     const createKit = () => {
         let kit = new Kit();
+        kit.name = name;
         kit.links = items;
         setKits( prevKits => [...prevKits, kit]);
         console.log({kits});
@@ -46,6 +51,10 @@ const KitForm = () => {
 
     return(
         <div>
+            <label>Kit Name:</label>
+            <input type="text" name="name" value={name} onChange={updateName}/>
+            <br/>
+
             <form onSubmit={addItem}>
                 <label>Item:</label><br/>
                 <input type="text" name="item" value={item} onChange={updateItem}/>
