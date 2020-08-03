@@ -3,10 +3,13 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { KitProvider } from './KitContext';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <KitProvider>
+      <App />
+    </KitProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
